@@ -12,8 +12,8 @@ def validate_input(item):
 browser = webdriver.Chrome()
 
 try:
-    # link = "http://suninjuly.github.io/registration1.html"
-    link = "http://suninjuly.github.io/registration2.html"
+    link = "http://suninjuly.github.io/registration1.html"
+    # link = "http://suninjuly.github.io/registration2.html"
     browser.get(link)
 
     first_name = browser.find_element(By.CLASS_NAME, "form-control.first")
@@ -30,7 +30,7 @@ try:
 
     button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
-    time.sleep(2)
+    time.sleep(1)
 
     welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
     welcome_text = welcome_text_elt.text
@@ -38,7 +38,7 @@ try:
     assert "Congratulations! You have successfully registered!" == welcome_text
 
 finally:
-    time.sleep(3)
+    time.sleep(2)
     browser.quit()
 
 
