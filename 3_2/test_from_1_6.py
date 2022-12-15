@@ -3,6 +3,7 @@ import unittest
 
 from selenium import webdriver
 from selenium.common import NoSuchElementException
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 
@@ -15,7 +16,10 @@ class TestOld(unittest.TestCase):
 
     def page_stuff(self, link) -> str:
 
-        browser = webdriver.Chrome()
+        options = Options()
+        options.headless = True
+
+        browser = webdriver.Chrome(options=options)
         browser.get(link)
 
         first_name = browser.find_element(By.CLASS_NAME, "form-control.first")
